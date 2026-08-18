@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Piala Soeratin 2026 - 8 Besar U-13 & U-15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0a0e17;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(145deg, #0d1a0d, #1a3a1a);
+            padding: 16px 12px 12px;
+            text-align: center;
+            border-bottom: 3px solid #F9A825;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(249, 168, 37, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .logo-pssi {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(249, 168, 37, 0.3);
+            padding: 4px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .header .logo-pssi img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(249, 168, 37, 0.15);
+        }
+
+        .header .sub {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 2px;
+            color: #ffffff;
+        }
+
+        .slogan {
+            background: linear-gradient(90deg, #F9A825, #f57f17);
+            color: #0a0e17;
+            font-weight: 800;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== TAB NAVIGASI ===== */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 16px 8px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            padding: 10px 32px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            background: transparent;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+            letter-spacing: 1px;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            background: rgba(249, 168, 37, 0.1);
+            border-color: rgba(249, 168, 37, 0.3);
+        }
+
+        .tab-btn.active {
+            background: #F9A825;
+            color: #0a0e17;
+            border-color: #F9A825;
+            box-shadow: 0 0 30px rgba(249, 168, 37, 0.2);
+        }
+
+        .tab-btn .badge-tab {
+            font-size: 11px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        .tab-btn.active .badge-tab {
+            opacity: 1;
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: 10px auto;
+            padding: 0 16px 60px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #141b2b, #1a2335);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            padding: 20px 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(249, 168, 37, 0.2);
+            padding-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card-title .badge {
+            font-size: 11px;
+            background: rgba(249, 168, 37, 0.15);
+            color: #ffffff;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(249, 168, 37, 0.2);
+        }
+
+        /* ============================================================ */
+        /* BAGAN 8 BESAR - STYLING */
+        /* ============================================================ */
+
+        .bracket-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 10px 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Quarterfinal */
+        .quarter-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .quarter-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quarter-item .match-number {
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 12px;
+            border-radius: 12px;
+        }
+
+        .bracket-match {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            min-width: 160px;
+            max-width: 200px;
+            text-align: center;
+            transition: 0.3s;
+            flex: 1;
+            width: 100%;
+        }
+
+        .bracket-match:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.02);
+        }
+
+        .bracket-match .match-teams {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bracket-match .team-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+        .bracket-match .team-item .team-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .bracket-match .team-item .team-score {
+            font-weight: 800;
+            color: #F9A825;
+            font-size: 14px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .bracket-match .team-item.winner {
+            background: rgba(249, 168, 37, 0.15);
+            border-left: 3px solid #F9A825;
+            padding-left: 10px;
+            border-radius: 4px;
+        }
+
+        .bracket-match .team-item.winner .team-name {
+            color: #ffffff;
+        }
+
+        .bracket-match .team-item.loser {
+            opacity: 0.5;
+        }
+
+        .bracket-match .team-item.placeholder {
+            opacity: 0.7;
+        }
+
+        .bracket-match .team-item.placeholder .team-name {
+            color: #ffffff;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .bracket-match .team-item.placeholder .team-score {
+            color: #9ca3af;
+        }
+
+        /* ============================================================ */
+        /* SEMIFINAL & FINAL - STYLING */
+        /* ============================================================ */
+
+        .semi-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .semi-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+        }
+
+        .semi-item .match-number {
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 12px;
+            border-radius: 12px;
+        }
+
+        .semi-item .bracket-match {
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        /* Final */
+        .final-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .final-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 200px;
+            max-width: 280px;
+        }
+
+        .final-item .match-number {
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 12px;
+            border-radius: 12px;
+        }
+
+        .final-item .bracket-match {
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        .final-item .bracket-match.final-match {
+            border-color: #F9A825;
+            border-width: 2px;
+            background: rgba(249, 168, 37, 0.12);
+        }
+
+        /* ============================================================ */
+        /* CONNECTOR LINES */
+        /* ============================================================ */
+
+        .connector-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 0;
+        }
+
+        .connector-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .connector-spacer {
+            flex: 1;
+            min-width: 20px;
+        }
+
+        .connector-line {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 2;
+            height: 40px;
+            position: relative;
+        }
+
+        .connector-line .line-h {
+            height: 2px;
+            width: 100%;
+            background: rgba(249, 168, 37, 0.2);
+        }
+
+        .connector-line .line-v-center {
+            width: 2px;
+            height: 40px;
+            background: rgba(249, 168, 37, 0.2);
+        }
+
+        /* ============================================================ */
+        /* RESPONSIVE */
+        /* ============================================================ */
+
+        @media (max-width: 768px) {
+            .quarter-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .semi-container {
+                gap: 20px;
+            }
+
+            .semi-item {
+                min-width: 150px;
+                max-width: 200px;
+            }
+
+            .final-item {
+                min-width: 150px;
+                max-width: 200px;
+            }
+
+            .bracket-match {
+                min-width: 120px;
+                max-width: 160px;
+                padding: 8px 10px;
+            }
+
+            .bracket-match .team-item .team-name {
+                font-size: 11px;
+            }
+
+            .bracket-match .team-item .team-score {
+                font-size: 12px;
+                min-width: 18px;
+            }
+
+            .tab-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quarter-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .semi-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .semi-item {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .final-item {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .bracket-match {
+                min-width: 100%;
+                max-width: 100%;
+                padding: 8px 12px;
+            }
+
+            .bracket-match .team-item .team-name {
+                font-size: 12px;
+            }
+
+            .bracket-match .team-item .team-score {
+                font-size: 13px;
+                min-width: 20px;
+            }
+
+            .tab-nav {
+                gap: 8px;
+                padding: 12px 12px 6px;
+            }
+
+            .tab-btn {
+                padding: 6px 16px;
+                font-size: 13px;
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px 12px;
+            font-size: 11px;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 16px;
+        }
+
+        .footer strong {
+            color: #ffffff;
+        }
+
+        /* Animasi transisi tab */
+        .bracket-container {
+            transition: opacity 0.3s ease;
+        }
+
+        .bracket-container.fade {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="logo">
+            <div class="logo-pssi">
+                <img src="https://i.ibb.co.com/F4DM1Fq3/file-00000000decc7206a2759c0a010a5e40.png" alt="PSSI Kutai Barat" />
+            </div>
+            <div>
+                <h1>PIALA SOERATIN 2026</h1>
+                <div class="sub">Kabupaten Kutai Barat • U-13 & U-15</div>
+            </div>
+        </div>
+    </div>
+    <div class="slogan"># Narkoba No, Sepakbola Yes</div>
+
+    <!-- ===== TAB NAVIGASI ===== -->
+    <div class="tab-nav">
+        <button class="tab-btn active" data-tab="u13">🏆 U-13 <span class="badge-tab">8 Besar</span></button>
+        <button class="tab-btn" data-tab="u15">🏆 U-15 <span class="badge-tab">8 Besar</span></button>
+    </div>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="content">
+
+        <div class="card">
+            <div class="card-title" id="cardTitle">
+                🏆 8 BESAR U-13
+                <span class="badge">Perempat Final</span>
+            </div>
+
+            <div class="bracket-container" id="bracketContainer">
+                <!-- Diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>Piala Soeratin 2026</strong> — Kabupaten Kutai Barat<br />
+            Powered by PSSI Kutai Barat
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // DATA U-13
+        // Format: A1 vs B2, C1 vs A3, B1 vs A2, B3 vs C2
+        // ============================================================
+
+        const dataU13 = {
+            quarter: [
+                {
+                    label: 'QF 1',
+                    teams: [
+                        { name: 'A1 (Juara Grup A)', score: '-', winner: false },
+                        { name: 'B2 (Runner-up Grup B)', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'QF 2',
+                    teams: [
+                        { name: 'C1 (Juara Grup C)', score: '-', winner: false },
+                        { name: 'A3 (Peringkat 3 Grup A)', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'QF 3',
+                    teams: [
+                        { name: 'B1 (Juara Grup B)', score: '-', winner: false },
+                        { name: 'A2 (Runner-up Grup A)', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'QF 4',
+                    teams: [
+                        { name: 'B3 (Peringkat 3 Grup B)', score: '-', winner: false },
+                        { name: 'C2 (Runner-up Grup C)', score: '-', winner: false }
+                    ]
+                }
+            ],
+            semifinal: [
+                {
+                    label: 'SF 1',
+                    teams: [
+                        { name: 'Pemenang QF 1', score: '-', winner: false },
+                        { name: 'Pemenang QF 2', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'SF 2',
+                    teams: [
+                        { name: 'Pemenang QF 3', score: '-', winner: false },
+                        { name: 'Pemenang QF 4', score: '-', winner: false }
+                    ]
+                }
+            ],
+            final: {
+                label: 'FINAL',
+                teams: [
+                    { name: 'Pemenang SF 1', score: '-', winner: false },
+                    { name: 'Pemenang SF 2', score: '-', winner: false }
+                ]
+            }
+        };
+
+        // ============================================================
+        // DATA U-15
+        // Format: A1 vs C2, D2 vs B1, C1 vs A2, B2 vs D1
+        // ============================================================
+
+        const dataU15 = {
+            quarter: [
+                {
+                    label: 'QF 1',
+                    teams: [
+                        { name: 'A1 (Juara Grup A)', score: '-', winner: false },
+                        { name: 'C2 (Runner-up Grup C)', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'QF 2',
+                    teams: [
+                        { name: 'D2 (Runner-up Grup D)', score: '-', winner: false },
+                        { name: 'B1 (Juara Grup B)', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'QF 3',
+                    teams: [
+                        { name: 'C1 (Juara Grup C)', score: '-', winner: false },
+                        { name: 'A2 (Runner-up Grup A)', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'QF 4',
+                    teams: [
+                        { name: 'B2 (Runner-up Grup B)', score: '-', winner: false },
+                        { name: 'D1 (Juara Grup D)', score: '-', winner: false }
+                    ]
+                }
+            ],
+            semifinal: [
+                {
+                    label: 'SF 1',
+                    teams: [
+                        { name: 'Pemenang QF 1', score: '-', winner: false },
+                        { name: 'Pemenang QF 2', score: '-', winner: false }
+                    ]
+                },
+                {
+                    label: 'SF 2',
+                    teams: [
+                        { name: 'Pemenang QF 3', score: '-', winner: false },
+                        { name: 'Pemenang QF 4', score: '-', winner: false }
+                    ]
+                }
+            ],
+            final: {
+                label: 'FINAL',
+                teams: [
+                    { name: 'Pemenang SF 1', score: '-', winner: false },
+                    { name: 'Pemenang SF 2', score: '-', winner: false }
+                ]
+            }
+        };
+
+        // ============================================================
+        // RENDER FUNGSI
+        // ============================================================
+
+        function renderBracket(data, title) {
+            const container = document.getElementById('bracketContainer');
+            const titleEl = document.getElementById('cardTitle');
+            if (!container) return;
+
+            // Update title
+            if (titleEl) {
+                titleEl.innerHTML = `
+                    🏆 ${title}
+                    <span class="badge">Perempat Final</span>
+                `;
+            }
+
+            let html = '';
+
+            // ===== 8 BESAR (Quarterfinal) =====
+            html += `<div class="quarter-grid">`;
+            data.quarter.forEach((match) => {
+                const teams = match.teams || [];
+                html += `
+                    <div class="quarter-item">
+                        <div class="match-number">${match.label}</div>
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                ${teams.map(t => `
+                                    <div class="team-item ${t.winner ? 'winner' : 'placeholder'}">
+                                        <span class="team-name">${t.name}</span>
+                                        <span class="team-score">${t.score}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+
+            // ===== CONNECTOR LINE =====
+            html += `
+                <div class="connector-wrapper">
+                    <div class="connector-row">
+                        <div class="connector-spacer"></div>
+                        <div class="connector-line">
+                            <div class="line-h"></div>
+                            <div class="line-v-center"></div>
+                            <div class="line-h"></div>
+                        </div>
+                        <div class="connector-spacer"></div>
+                    </div>
+                </div>
+            `;
+
+            // ===== SEMIFINAL (4 Besar) =====
+            html += `<div class="semi-container">`;
+            data.semifinal.forEach((match) => {
+                const teams = match.teams || [];
+                html += `
+                    <div class="semi-item">
+                        <div class="match-number">${match.label}</div>
+                        <div class="bracket-match">
+                            <div class="match-teams">
+                                ${teams.map(t => `
+                                    <div class="team-item ${t.winner ? 'winner' : 'placeholder'}">
+                                        <span class="team-name">${t.name}</span>
+                                        <span class="team-score">${t.score}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+
+            // ===== CONNECTOR LINE =====
+            html += `
+                <div class="connector-wrapper">
+                    <div class="connector-row">
+                        <div class="connector-spacer"></div>
+                        <div class="connector-line">
+                            <div class="line-h"></div>
+                            <div class="line-v-center"></div>
+                            <div class="line-h"></div>
+                        </div>
+                        <div class="connector-spacer"></div>
+                    </div>
+                </div>
+            `;
+
+            // ===== FINAL =====
+            html += `<div class="final-container">`;
+            html += `
+                <div class="final-item">
+                    <div class="match-number">${data.final.label}</div>
+                    <div class="bracket-match final-match">
+                        <div class="match-teams">
+                            ${data.final.teams.map(t => `
+                                <div class="team-item ${t.winner ? 'winner' : 'placeholder'}">
+                                    <span class="team-name">${t.name}</span>
+                                    <span class="team-score">${t.score}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            html += `</div>`;
+
+            // Fade in animation
+            container.classList.add('fade');
+            container.innerHTML = html;
+            setTimeout(() => {
+                container.classList.remove('fade');
+            }, 50);
+        }
+
+        // ============================================================
+        // TAB SWITCHING
+        // ============================================================
+
+        let currentTab = 'u13';
+
+        function switchTab(tab) {
+            if (tab === currentTab) return;
+            currentTab = tab;
+
+            // Update tombol
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.tab === tab) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Render data sesuai tab
+            if (tab === 'u13') {
+                renderBracket(dataU13, '8 BESAR U-13');
+            } else if (tab === 'u15') {
+                renderBracket(dataU15, '8 BESAR U-15');
+            }
+        }
+
+        // ============================================================
+        // EVENT LISTENER
+        // ============================================================
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                switchTab(this.dataset.tab);
+            });
+        });
+
+        // ============================================================
+        // INIT - Default tampilkan U-13
+        // ============================================================
+
+        renderBracket(dataU13, '8 BESAR U-13');
+
+        console.log('🏆 Piala Soeratin 2026 - 8 Besar U-13 & U-15');
+        console.log('📌 Format U-13: A1 vs B2, C1 vs A3, B1 vs A2, B3 vs C2');
+        console.log('📌 Format U-15: A1 vs C2, D2 vs B1, C1 vs A2, B2 vs D1');
+        console.log('✏️ Edit data di dataU13 dan dataU15 untuk mengisi skor & pemenang');
+        console.log('💡 Tips: Ubah score dari "-" ke angka (contoh: "2"), dan winner ke true');
+    </script>
+
+</body>
+</html>
