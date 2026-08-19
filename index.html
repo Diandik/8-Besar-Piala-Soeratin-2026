@@ -256,10 +256,12 @@
         }
 
         .bracket-match .team-item .team-name {
-            font-weight: 600;
+            font-weight: 900;
             color: #ffffff;
             font-size: 13px;
             white-space: nowrap;
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
         }
 
         .bracket-match .team-item .team-score {
@@ -292,7 +294,7 @@
         .bracket-match .team-item.placeholder .team-name {
             color: #ffffff;
             font-style: italic;
-            font-weight: 400;
+            font-weight: 900;
         }
 
         .bracket-match .team-item.placeholder .team-score {
@@ -454,6 +456,7 @@
 
             .bracket-match .team-item .team-name {
                 font-size: 11px;
+                font-weight: 900;
             }
 
             .bracket-match .team-item .team-score {
@@ -496,6 +499,7 @@
 
             .bracket-match .team-item .team-name {
                 font-size: 12px;
+                font-weight: 900;
             }
 
             .bracket-match .team-item .team-score {
@@ -588,52 +592,44 @@
         // ============================================================
 
         const dataU13 = {
-            quarter: [
-                {
-                    label: 'QF 1',
-                    teams: [
-                        { name: 'A1 (Juara Grup A)', score: '-', winner: false },
-                        { name: 'GELORA PUTRA SENDAWAR', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'QF 2',
-                    teams: [
-                        { name: 'MENARUNG', score: '-', winner: false },
-                        { name: 'A3 (Peringkat 3 Grup A)', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'QF 3',
-                    teams: [
-                        { name: 'PS BIGUNG', score: '-', winner: false },
-                        { name: 'A2 (Runner-up Grup A)', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'QF 4',
-                    teams: [
-                        { name: 'PETRAS', score: '-', winner: false },
-                        { name: 'AZELLEN SOCCER', score: '-', winner: false }
-                    ]
-                }
-            ],
-            semifinal: [
-                {
-                    label: 'SF 1',
-                    teams: [
-                        { name: 'Pemenang QF 1', score: '-', winner: false },
-                        { name: 'Pemenang QF 2', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'SF 2',
-                    teams: [
-                        { name: 'Pemenang QF 3', score: '-', winner: false },
-                        { name: 'Pemenang QF 4', score: '-', winner: false }
-                    ]
-                }
-            ],
+            quarter: [{
+                label: 'QF 1',
+                teams: [
+                    { name: 'A1 (Juara Grup A)', score: '-', winner: false },
+                    { name: 'GELORA PUTRA SENDAWAR', score: '-', winner: false }
+                ]
+            }, {
+                label: 'QF 2',
+                teams: [
+                    { name: 'MENARUNG', score: '-', winner: false },
+                    { name: 'A3 (Peringkat 3 Grup A)', score: '-', winner: false }
+                ]
+            }, {
+                label: 'QF 3',
+                teams: [
+                    { name: 'PS BIGUNG', score: '-', winner: false },
+                    { name: 'A2 (Runner-up Grup A)', score: '-', winner: false }
+                ]
+            }, {
+                label: 'QF 4',
+                teams: [
+                    { name: 'PETRAS', score: '-', winner: false },
+                    { name: 'AZELLEN SOCCER', score: '-', winner: false }
+                ]
+            }],
+            semifinal: [{
+                label: 'SF 1',
+                teams: [
+                    { name: 'Pemenang QF 1', score: '-', winner: false },
+                    { name: 'Pemenang QF 2', score: '-', winner: false }
+                ]
+            }, {
+                label: 'SF 2',
+                teams: [
+                    { name: 'Pemenang QF 3', score: '-', winner: false },
+                    { name: 'Pemenang QF 4', score: '-', winner: false }
+                ]
+            }],
             final: {
                 label: 'FINAL',
                 teams: [
@@ -649,52 +645,44 @@
         // ============================================================
 
         const dataU15 = {
-            quarter: [
-                {
-                    label: 'QF 1',
-                    teams: [
-                        { name: 'A1 (Juara Grup A)', score: '-', winner: false },
-                        { name: 'C2 (Runner-up Grup C)', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'QF 2',
-                    teams: [
-                        { name: 'D2 (Runner-up Grup D)', score: '-', winner: false },
-                        { name: 'B1 (Juara Grup B)', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'QF 3',
-                    teams: [
-                        { name: 'KERBANGAN SKD', score: '-', winner: false },
-                        { name: 'A2 (Runner-up Grup A)', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'QF 4',
-                    teams: [
-                        { name: 'B2 (Runner-up Grup B)', score: '-', winner: false },
-                        { name: 'D1 (Juara Grup D)', score: '-', winner: false }
-                    ]
-                }
-            ],
-            semifinal: [
-                {
-                    label: 'SF 1',
-                    teams: [
-                        { name: 'Pemenang QF 1', score: '-', winner: false },
-                        { name: 'Pemenang QF 2', score: '-', winner: false }
-                    ]
-                },
-                {
-                    label: 'SF 2',
-                    teams: [
-                        { name: 'Pemenang QF 3', score: '-', winner: false },
-                        { name: 'Pemenang QF 4', score: '-', winner: false }
-                    ]
-                }
-            ],
+            quarter: [{
+                label: 'QF 1',
+                teams: [
+                    { name: 'A1 (Juara Grup A)', score: '-', winner: false },
+                    { name: 'C2 (Runner-up Grup C)', score: '-', winner: false }
+                ]
+            }, {
+                label: 'QF 2',
+                teams: [
+                    { name: 'D2 (Runner-up Grup D)', score: '-', winner: false },
+                    { name: 'B1 (Juara Grup B)', score: '-', winner: false }
+                ]
+            }, {
+                label: 'QF 3',
+                teams: [
+                    { name: 'KERBANGAN SKD', score: '-', winner: false },
+                    { name: 'A2 (Runner-up Grup A)', score: '-', winner: false }
+                ]
+            }, {
+                label: 'QF 4',
+                teams: [
+                    { name: 'B2 (Runner-up Grup B)', score: '-', winner: false },
+                    { name: 'D1 (Juara Grup D)', score: '-', winner: false }
+                ]
+            }],
+            semifinal: [{
+                label: 'SF 1',
+                teams: [
+                    { name: 'Pemenang QF 1', score: '-', winner: false },
+                    { name: 'Pemenang QF 2', score: '-', winner: false }
+                ]
+            }, {
+                label: 'SF 2',
+                teams: [
+                    { name: 'Pemenang QF 3', score: '-', winner: false },
+                    { name: 'Pemenang QF 4', score: '-', winner: false }
+                ]
+            }],
             final: {
                 label: 'FINAL',
                 teams: [
