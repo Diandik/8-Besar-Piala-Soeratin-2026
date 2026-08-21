@@ -179,7 +179,6 @@
             border: 1px solid rgba(249, 168, 37, 0.2);
         }
 
-        /* ===== DETAIL PERTANDINGAN ===== */
         .match-detail-card {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 10px;
@@ -337,7 +336,6 @@
             border-left: 4px solid #F9A825;
         }
 
-        /* ===== TOP SKOR ===== */
         .top-skor-list {
             display: flex;
             flex-direction: column;
@@ -396,7 +394,6 @@
             font-size: 14px;
         }
 
-        /* ===== KARTU ===== */
         .kartu-table {
             width: 100%;
             font-size: 12px;
@@ -886,7 +883,6 @@
                 { no: 5, nama: 'Yoel Y', tim: 'PS Bigung', kuning: 1, merah: 0, pertandingan: 'Gelora Putra Sendawar vs PS Bigung' },
                 { no: 5, nama: 'Alvian R', tim: 'Petras', kuning: 1, merah: 0, pertandingan: 'PS Bigung vs Petras' },
                 { no: 3, nama: 'M U Syahdan', tim: 'Petras', kuning: 1, merah: 0, pertandingan: 'PS Bigung vs Petras' },
-                // QF 1
                 { no: 2, nama: 'Yuvinus M', tim: 'Jaya Prana', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' },
                 { no: 4, nama: 'Vebrianus G', tim: 'Jaya Prana', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' },
                 { no: 4, nama: 'Belgiyo', tim: 'Gelora Putra Sendawar', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' }
@@ -907,7 +903,10 @@
                 { no: 25, nama: 'Antonio D V', tim: 'Delirium Muara Tae', kuning: 1, merah: 0, pertandingan: 'PSG Muara Gusiq vs Delirium Muara Tae' },
                 { no: 1, nama: 'Fabiano Juah', tim: 'Menarung', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs Menarung' },
                 { no: 99, nama: 'Natanael R', tim: 'Persimuja', kuning: 1, merah: 0, pertandingan: 'Persimuja vs Asira' },
-                { no: 13, nama: 'Ananta S Y', tim: 'Asira', kuning: 1, merah: 0, pertandingan: 'Persimuja vs Asira' }
+                { no: 13, nama: 'Ananta S Y', tim: 'Asira', kuning: 1, merah: 0, pertandingan: 'Persimuja vs Asira' },
+                { no: 10, nama: 'Evan H A W', tim: 'Delirium Muara Tae', kuning: 1, merah: 0, pertandingan: 'Gelora Putra Sendawar vs Delirium Muara Tae' },
+                { no: 11, nama: 'Faturrahman', tim: 'Delirium Muara Tae', kuning: 1, merah: 0, pertandingan: 'Gelora Putra Sendawar vs Delirium Muara Tae' },
+                { no: 11, nama: 'Valen', tim: 'Gelora Putra Sendawar', kuning: 1, merah: 0, pertandingan: 'Gelora Putra Sendawar vs Delirium Muara Tae' }
             ]
         };
 
@@ -941,18 +940,26 @@
             gol: [] }
         };
 
-        // Data U-15
+        // Data U-15 - UPDATE hasil QF 1 & QF 2
         const matchDetailU15 = {
             quarter: [
-                { label: 'QF 1', tuan: 'Menarung', tamu: 'Persimuja', skorTuan: null, skorTamu: null, gol: [] },
-                { label: 'QF 2', tuan: 'Gelora Putra Sendawar', tamu: 'Delirium Muara Tae', skorTuan: null, skorTamu: null,
-                    gol: []
+                { label: 'QF 1', tuan: 'Menarung', tamu: 'Persimuja', skorTuan: 2, skorTamu: 1,
+                    gol: [
+                        { nama: 'Juan F', no: 4, tim: 'Menarung' },
+                        { nama: 'Juan F', no: 4, tim: 'Menarung' },
+                        { nama: 'Christian F', no: 11, tim: 'Persimuja' }
+                    ]
+                },
+                { label: 'QF 2', tuan: 'Gelora Putra Sendawar', tamu: 'Delirium Muara Tae', skorTuan: 0, skorTamu: 1,
+                    gol: [
+                        { nama: 'Gabriel A W', no: 13, tim: 'Delirium Muara Tae' }
+                    ]
                 },
                 { label: 'QF 3', tuan: 'Kerbangan SKD', tamu: 'Neofeliz FA', skorTuan: null, skorTamu: null, gol: [] },
                 { label: 'QF 4', tuan: 'PSG Muara Gusiq', tamu: 'Jaya Prana', skorTuan: null, skorTamu: null, gol: [] }
             ],
             semifinal: [
-                { label: 'SF 1', tuan: 'Pemenang QF 1', tamu: 'Pemenang QF 2', skorTuan: null, skorTamu: null,
+                { label: 'SF 1', tuan: 'Menarung', tamu: 'Delirium Muara Tae', skorTuan: null, skorTamu: null,
                 gol: [] },
                 { label: 'SF 2', tuan: 'Pemenang QF 3', tamu: 'Pemenang QF 4', skorTuan: null, skorTamu: null,
                 gol: [] }
@@ -1296,10 +1303,10 @@
         console.log('✅ Semua detail pertandingan (8 Besar, Semifinal, Final, 3-4)');
         console.log('✅ Top Skor (gol ≥ 2)');
         console.log('✅ Kartu');
-        console.log('📌 Update QF 1 & QF 2 U-13 sudah masuk:');
-        console.log('   ✅ Jaya Prana 1-0 Gelora Putra Sendawar (⚽ 19. Oxel S D)');
-        console.log('   ✅ Menarung 1-0 Persimen X Diandra (⚽ 11. Alvino)');
-        console.log('📌 Kartu QF 1 U-13 sudah masuk');
+        console.log('📌 Update QF 1 & QF 2 U-15 sudah masuk:');
+        console.log('   ✅ Menarung 2-1 Persimuja (⚽⚽ 4. Juan F, ⚽ 11. Christian F)');
+        console.log('   ✅ Gelora Putra Sendawar 0-1 Delirium Muara Tae (⚽ 13. Gabriel A W)');
+        console.log('📌 Kartu QF 2 U-15 sudah masuk');
         console.log('✏️ Edit data di matchDetailU13 / matchDetailU15 untuk update');
     </script>
 
