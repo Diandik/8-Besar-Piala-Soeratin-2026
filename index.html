@@ -95,7 +95,6 @@
             text-transform: uppercase;
         }
 
-        /* ===== TAB NAVIGASI ===== */
         .tab-nav {
             display: flex;
             justify-content: center;
@@ -180,344 +179,308 @@
             border: 1px solid rgba(249, 168, 37, 0.2);
         }
 
-        /* ============================================================ */
-        /* BAGAN 8 BESAR - STYLING */
-        /* ============================================================ */
-
-        .bracket-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            padding: 10px 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Quarterfinal */
-        .quarter-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .quarter-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .quarter-item .match-number {
-            font-size: 11px;
-            color: #ffffff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2px 12px;
-            border-radius: 12px;
-        }
-
-        .bracket-match {
-            background: rgba(255, 255, 255, 0.05);
+        /* ===== DETAIL PERTANDINGAN ===== */
+        .match-detail-card {
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 10px;
-            padding: 10px 14px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            min-width: 160px;
-            max-width: 200px;
-            text-align: center;
+            padding: 12px 14px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: 0.3s;
-            flex: 1;
-            width: 100%;
         }
 
-        .bracket-match:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: scale(1.02);
+        .match-detail-card:hover {
+            background: rgba(255, 255, 255, 0.06);
         }
 
-        .bracket-match .match-teams {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .bracket-match .team-item {
+        .match-detail-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 13px;
-            gap: 10px;
-            transition: 0.2s;
-        }
-
-        .bracket-match .team-item .team-name {
-            font-weight: 900;
-            color: #ffffff;
-            font-size: 13px;
-            white-space: nowrap;
-            letter-spacing: 0.3px;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
-        }
-
-        .bracket-match .team-item .team-score {
-            font-weight: 800;
-            color: #F9A825;
-            font-size: 14px;
-            min-width: 24px;
-            text-align: center;
-        }
-
-        .bracket-match .team-item.winner {
-            background: rgba(249, 168, 37, 0.15);
-            border-left: 3px solid #F9A825;
-            padding-left: 10px;
-            border-radius: 4px;
-        }
-
-        .bracket-match .team-item.winner .team-name {
-            color: #ffffff;
-        }
-
-        .bracket-match .team-item.loser {
-            opacity: 0.5;
-        }
-
-        .bracket-match .team-item.placeholder {
-            opacity: 0.7;
-        }
-
-        .bracket-match .team-item.placeholder .team-name {
-            color: #ffffff;
-            font-style: italic;
-            font-weight: 900;
-        }
-
-        .bracket-match .team-item.placeholder .team-score {
-            color: #9ca3af;
-        }
-
-        /* ============================================================ */
-        /* SEMIFINAL & FINAL - STYLING */
-        /* ============================================================ */
-
-        .semi-container {
-            display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 40px;
-            width: 100%;
+            gap: 10px;
+            padding: 4px 0 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 8px;
             flex-wrap: wrap;
         }
 
-        .semi-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            min-width: 200px;
-            max-width: 280px;
-        }
-
-        .semi-item .match-number {
+        .match-detail-header .match-label {
             font-size: 11px;
-            color: #ffffff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.06);
             padding: 2px 12px;
             border-radius: 12px;
         }
 
-        .semi-item .bracket-match {
-            min-width: 100%;
-            max-width: 100%;
+        .match-detail-header .match-teams {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
         }
 
-        /* Final */
-        .final-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
+        .match-detail-header .match-score {
+            font-size: 20px;
+            font-weight: 900;
+            color: #F9A825;
+            background: rgba(249, 168, 37, 0.08);
+            padding: 2px 16px;
+            border-radius: 8px;
         }
 
-        .final-item {
+        .match-detail-body {
+            display: grid;
+            grid-template-columns: 1fr 30px 1fr;
+            gap: 6px 8px;
+            align-items: start;
+        }
+
+        .match-detail-body .team-col {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            min-width: 200px;
-            max-width: 280px;
+            gap: 3px;
         }
 
-        .final-item .match-number {
+        .match-detail-body .team-col.left {
+            align-items: flex-end;
+        }
+
+        .match-detail-body .team-col.right {
+            align-items: flex-start;
+        }
+
+        .match-detail-body .goal-item {
             font-size: 11px;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            white-space: nowrap;
+        }
+
+        .match-detail-body .goal-item .goal-balls {
+            color: #F9A825;
+            font-size: 11px;
+        }
+
+        .match-detail-body .goal-item .goal-number {
             color: #ffffff;
+            font-size: 10px;
+        }
+
+        .match-detail-body .goal-item .goal-name {
+            color: #e0e0e0;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .match-detail-body .goal-item .goal-og-label {
+            color: #ef4444;
+            font-size: 8px;
             font-weight: 700;
+            background: rgba(239, 68, 68, 0.15);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        .match-detail-body .card-item {
+            font-size: 11px;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            white-space: nowrap;
+        }
+
+        .match-detail-body .card-item .card-yellow {
+            color: #F9A825;
+            font-weight: 700;
+        }
+
+        .match-detail-body .card-item .card-red {
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .match-detail-body .card-item .card-number {
+            color: #ffffff;
+            font-size: 10px;
+        }
+
+        .match-detail-body .card-item .card-name {
+            color: #e0e0e0;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .match-detail-divider {
+            color: #4b5563;
+            font-size: 10px;
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        .match-detail-empty {
+            color: #4b5563;
+            font-size: 11px;
+            text-align: center;
+            padding: 4px 0;
+        }
+
+        .detail-section-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #F9A825;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            padding-left: 10px;
+            border-left: 4px solid #F9A825;
+        }
+
+        /* ===== TOP SKOR ===== */
+        .top-skor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .top-skor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid #F9A825;
+            transition: 0.3s;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .top-skor-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .top-skor-item .nama {
+            font-weight: 600;
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+
+        .top-skor-item .tim {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .top-skor-item .gol {
+            background: linear-gradient(135deg, #F9A825, #f57f17);
+            color: #0a0e17;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .top-skor-item .rank {
+            color: #6b7280;
+            font-weight: 700;
+            margin-right: 8px;
+            font-size: 13px;
+        }
+
+        .kosong {
+            text-align: center;
+            color: #4b5563;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        /* ===== KARTU ===== */
+        .kartu-table {
+            width: 100%;
+            font-size: 12px;
+            border-collapse: collapse;
+            min-width: 280px;
+            margin-top: 8px;
+        }
+
+        .kartu-table th {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 6px;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            background: rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+
+        .kartu-table td {
+            padding: 6px 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .kartu-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .kartu-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .kartu-table .tim-cell {
+            text-align: left;
+            color: #9ca3af;
+            font-size: 11px;
+        }
+
+        .kartu-table .nama-cell {
+            text-align: left;
+            font-weight: 600;
+            color: #e0e0e0;
+            font-size: 12px;
+        }
+
+        .kartu-table .pertandingan-cell {
+            text-align: left;
+            color: #6b7280;
+            font-size: 10px;
+        }
+
+        .badge-kuning {
+            background: rgba(249, 168, 37, 0.15);
+            color: #F9A825;
             padding: 2px 12px;
             border-radius: 12px;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid rgba(249, 168, 37, 0.2);
+            display: inline-block;
         }
 
-        .final-item .bracket-match {
-            min-width: 100%;
-            max-width: 100%;
+        .badge-merah {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            display: inline-block;
         }
 
-        .final-item .bracket-match.final-match {
-            border-color: #F9A825;
-            border-width: 2px;
-            background: rgba(249, 168, 37, 0.12);
-        }
-
-        /* ============================================================ */
-        /* CONNECTOR LINES */
-        /* ============================================================ */
-
-        .connector-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            gap: 0;
-        }
-
-        .connector-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        .connector-spacer {
-            flex: 1;
-            min-width: 20px;
-        }
-
-        .connector-line {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 2;
-            height: 40px;
-            position: relative;
-        }
-
-        .connector-line .line-h {
-            height: 2px;
-            width: 100%;
-            background: rgba(249, 168, 37, 0.2);
-        }
-
-        .connector-line .line-v-center {
-            width: 2px;
-            height: 40px;
-            background: rgba(249, 168, 37, 0.2);
-        }
-
-        /* ============================================================ */
-        /* RESPONSIVE */
-        /* ============================================================ */
-
-        @media (max-width: 768px) {
-            .quarter-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .semi-container {
-                gap: 20px;
-            }
-
-            .semi-item {
-                min-width: 150px;
-                max-width: 200px;
-            }
-
-            .final-item {
-                min-width: 150px;
-                max-width: 200px;
-            }
-
-            .bracket-match {
-                min-width: 120px;
-                max-width: 160px;
-                padding: 8px 10px;
-            }
-
-            .bracket-match .team-item .team-name {
-                font-size: 11px;
-                font-weight: 900;
-            }
-
-            .bracket-match .team-item .team-score {
-                font-size: 12px;
-                min-width: 18px;
-            }
-
-            .tab-btn {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .quarter-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .semi-container {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .semi-item {
-                min-width: 100%;
-                max-width: 100%;
-            }
-
-            .final-item {
-                min-width: 100%;
-                max-width: 100%;
-            }
-
-            .bracket-match {
-                min-width: 100%;
-                max-width: 100%;
-                padding: 8px 12px;
-            }
-
-            .bracket-match .team-item .team-name {
-                font-size: 12px;
-                font-weight: 900;
-            }
-
-            .bracket-match .team-item .team-score {
-                font-size: 13px;
-                min-width: 20px;
-            }
-
-            .tab-nav {
-                gap: 8px;
-                padding: 12px 12px 6px;
-            }
-
-            .tab-btn {
-                padding: 6px 16px;
-                font-size: 13px;
-                flex: 1;
-                text-align: center;
-            }
+        .sub-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #F9A825;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 4px solid #F9A825;
         }
 
         .footer {
@@ -533,13 +496,83 @@
             color: #ffffff;
         }
 
-        /* Animasi transisi tab */
         .bracket-container {
             transition: opacity 0.3s ease;
         }
 
         .bracket-container.fade {
             opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .tab-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            .top-skor-item .nama {
+                font-size: 12px;
+            }
+
+            .match-detail-body {
+                grid-template-columns: 1fr 20px 1fr;
+                gap: 4px;
+            }
+
+            .match-detail-header .match-teams {
+                font-size: 13px;
+            }
+
+            .match-detail-header .match-score {
+                font-size: 16px;
+                padding: 2px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tab-nav {
+                gap: 8px;
+                padding: 12px 12px 6px;
+            }
+
+            .tab-btn {
+                padding: 6px 16px;
+                font-size: 13px;
+                flex: 1;
+                text-align: center;
+            }
+
+            .kartu-table {
+                font-size: 10px;
+                min-width: 200px;
+            }
+
+            .kartu-table td,
+            .kartu-table th {
+                padding: 4px 2px;
+                font-size: 10px;
+            }
+
+            .kartu-table .nama-cell {
+                font-size: 10px;
+            }
+
+            .match-detail-body .goal-item {
+                font-size: 10px;
+            }
+
+            .match-detail-body .card-item {
+                font-size: 10px;
+            }
+
+            .match-detail-header .match-teams {
+                font-size: 12px;
+            }
+
+            .match-detail-header .match-score {
+                font-size: 14px;
+                padding: 2px 8px;
+            }
         }
     </style>
 </head>
@@ -587,116 +620,567 @@
 
     <script>
         // ============================================================
-        // DATA U-13
-        // Format: A1 vs B2, C1 vs A3, B1 vs A2, B3 vs C2
+        // DATA PERTANDINGAN LENGKAP (dari kode kedua)
         // ============================================================
 
-        const dataU13 = {
-            quarter: [{
-                label: 'QF 1',
-                teams: [
-                    { name: 'JAYA PRANA', score: '-', winner: false },
-                    { name: 'GELORA PUTRA SENDAWAR', score: '-', winner: false }
+        const pertandingan = {
+            u13: {
+                A: [
+                    { tuan: 'Jaya Prana', tamu: 'Persimuja', skorTuan: 0, skorTamu: 0, gol: [] },
+                    { tuan: 'Persimen X Diandra', tamu: 'Geiska Sport', skorTuan: 2, skorTamu: 1,
+                        gol: [
+                            { nama: 'Bernades T R', no: 16, tim: 'Persimen X Diandra' },
+                            { nama: 'Octavianus A R', no: 4, tim: 'Persimen X Diandra' },
+                            { nama: 'Cedric G S', no: 18, tim: 'Geiska Sport' }
+                        ]
+                    },
+                    { tuan: 'Persimuja', tamu: 'Geiska Sport', skorTuan: 2, skorTamu: 0,
+                        gol: [
+                            { nama: 'Rafael T', no: 5, tim: 'Persimuja' },
+                            { nama: 'Mizhael C M', no: 10, tim: 'Persimuja' }
+                        ]
+                    },
+                    { tuan: 'Jaya Prana', tamu: 'Persimen X Diandra', skorTuan: 1, skorTamu: 0,
+                        gol: [
+                            { nama: 'Oxel S D', no: 19, tim: 'Jaya Prana' }
+                        ]
+                    },
+                    { tuan: 'Persimen X Diandra', tamu: 'Persimuja', skorTuan: 0, skorTamu: 2,
+                        gol: [
+                            { nama: 'Delon', no: 18, tim: 'Persimuja' },
+                            { nama: 'Mizhael C M', no: 10, tim: 'Persimuja' }
+                        ]
+                    },
+                    { tuan: 'Geiska Sport', tamu: 'Jaya Prana', skorTuan: 0, skorTamu: 4,
+                        gol: [
+                            { nama: 'Tristan Aditya', no: 10, tim: 'Jaya Prana' },
+                            { nama: 'M Alif', no: 9, tim: 'Jaya Prana' },
+                            { nama: 'Oxel S D', no: 19, tim: 'Jaya Prana' },
+                            { nama: 'Abdi P D', no: 3, tim: 'Jaya Prana' }
+                        ]
+                    }
+                ],
+                B: [
+                    { tuan: 'Akademi Nyuatan Bersatu', tamu: 'PS Bigung', skorTuan: 0, skorTamu: 2,
+                        gol: [
+                            { nama: 'Dafin Delano', no: 12, tim: 'PS Bigung' },
+                            { nama: 'Dirli', no: 23, tim: 'PS Bigung' }
+                        ]
+                    },
+                    { tuan: 'Petras', tamu: 'Gelora Putra Sendawar', skorTuan: 0, skorTamu: 2,
+                        gol: [
+                            { nama: 'Darva', no: 17, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Adriel', no: 11, tim: 'Gelora Putra Sendawar' }
+                        ]
+                    },
+                    { tuan: 'Gelora Putra Sendawar', tamu: 'PS Bigung', skorTuan: 1, skorTamu: 4,
+                        gol: [
+                            { nama: 'Chorolus', no: 13, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Dafin Delano', no: 12, tim: 'PS Bigung' },
+                            { nama: 'Dafin Delano', no: 12, tim: 'PS Bigung' },
+                            { nama: 'Daniel A', no: 85, tim: 'PS Bigung' },
+                            { nama: 'Gerycristian W', no: 20, tim: 'PS Bigung' }
+                        ]
+                    },
+                    { tuan: 'Petras', tamu: 'Akademi Nyuatan Bersatu', skorTuan: 2, skorTamu: 0,
+                        gol: [
+                            { nama: 'Adityanur L', no: 11, tim: 'Petras' },
+                            { nama: 'Bima M', no: 7, tim: 'Petras' }
+                        ]
+                    },
+                    { tuan: 'Akademi Nyuatan Bersatu', tamu: 'Gelora Putra Sendawar', skorTuan: 3, skorTamu: 4,
+                        gol: [
+                            { nama: 'F A Liling', no: 14, tim: 'Akademi Nyuatan Bersatu' },
+                            { nama: 'F A Liling', no: 14, tim: 'Akademi Nyuatan Bersatu' },
+                            { nama: 'Rey Kenaya', no: 15, tim: 'Akademi Nyuatan Bersatu' },
+                            { nama: 'Adriel', no: 11, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Adriel', no: 11, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Chorolus', no: 13, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Pran Nanda', no: 9, tim: 'Gelora Putra Sendawar' }
+                        ]
+                    },
+                    { tuan: 'PS Bigung', tamu: 'Petras', skorTuan: 1, skorTamu: 1,
+                        gol: [
+                            { nama: 'Dafin Delano', no: 12, tim: 'PS Bigung' },
+                            { nama: 'Bima M', no: 7, tim: 'Petras' }
+                        ]
+                    }
+                ],
+                C: [
+                    { tuan: 'Azellen Soccer', tamu: 'Kubar Soccer School', skorTuan: 9, skorTamu: 0,
+                        gol: [
+                            { nama: 'Fernandes', no: 72, tim: 'Azellen Soccer' },
+                            { nama: 'Fernandes', no: 72, tim: 'Azellen Soccer' },
+                            { nama: 'Fernandes', no: 72, tim: 'Azellen Soccer' },
+                            { nama: 'Fernandes', no: 72, tim: 'Azellen Soccer' },
+                            { nama: 'Mahardika', no: 78, tim: 'Azellen Soccer' },
+                            { nama: 'Mahardika', no: 78, tim: 'Azellen Soccer' },
+                            { nama: 'Hardianto', no: 77, tim: 'Azellen Soccer' },
+                            { nama: 'N Kinan F', no: 56, tim: 'Azellen Soccer' },
+                            { nama: 'Risky Simin', no: 28, tim: 'Azellen Soccer' }
+                        ]
+                    },
+                    { tuan: 'Menarung', tamu: 'Azellen Soccer', skorTuan: 4, skorTamu: 1,
+                        gol: [
+                            { nama: 'Irenius Jeasen', no: 9, tim: 'Menarung' },
+                            { nama: 'Irenius Jeasen', no: 9, tim: 'Menarung' },
+                            { nama: 'Kanzey Alvaro', no: 7, tim: 'Menarung' },
+                            { nama: 'Alvino', no: 11, tim: 'Menarung' },
+                            { nama: 'Hardianto', no: 77, tim: 'Azellen Soccer' }
+                        ]
+                    },
+                    { tuan: 'Menarung', tamu: 'Kubar Soccer School', skorTuan: 4, skorTamu: 2,
+                        gol: [
+                            { nama: 'Irenius J', no: 9, tim: 'Menarung' },
+                            { nama: 'Irenius J', no: 9, tim: 'Menarung' },
+                            { nama: 'Arfan T J', no: 15, tim: 'Menarung' },
+                            { nama: 'Adrian (OG)', no: 18, tim: 'Kubar Soccer School' },
+                            { nama: 'Yadi', no: 22, tim: 'Kubar Soccer School' },
+                            { nama: 'Ardiansyah (OG)', no: 4, tim: 'Menarung' }
+                        ]
+                    }
                 ]
-            }, {
-                label: 'QF 2',
-                teams: [
-                    { name: 'MENARUNG', score: '-', winner: false },
-                    { name: 'PersimenxDiandra', score: '-', winner: false }
-                ]
-            }, {
-                label: 'QF 3',
-                teams: [
-                    { name: 'PS BIGUNG', score: '-', winner: false },
-                    { name: 'PERSIMUJA', score: '-', winner: false }
-                ]
-            }, {
-                label: 'QF 4',
-                teams: [
-                    { name: 'PETRAS', score: '-', winner: false },
-                    { name: 'AZELLEN SOCCER', score: '-', winner: false }
-                ]
-            }],
-            semifinal: [{
-                label: 'SF 1',
-                teams: [
-                    { name: 'Pemenang QF 1', score: '-', winner: false },
-                    { name: 'Pemenang QF 2', score: '-', winner: false }
-                ]
-            }, {
-                label: 'SF 2',
-                teams: [
-                    { name: 'Pemenang QF 3', score: '-', winner: false },
-                    { name: 'Pemenang QF 4', score: '-', winner: false }
-                ]
-            }],
-            final: {
-                label: 'FINAL',
-                teams: [
-                    { name: 'Pemenang SF 1', score: '-', winner: false },
-                    { name: 'Pemenang SF 2', score: '-', winner: false }
+            },
+            u15: {
+                A: [
+                    { tuan: 'Geiska Sport', tamu: 'Neofeliz FA', skorTuan: 0, skorTamu: 6,
+                        gol: [
+                            { nama: 'Anthony S', no: 18, tim: 'Neofeliz FA' },
+                            { nama: 'Anthony S', no: 18, tim: 'Neofeliz FA' },
+                            { nama: 'Anthony S', no: 18, tim: 'Neofeliz FA' },
+                            { nama: 'George D R K', no: 7, tim: 'Neofeliz FA' },
+                            { nama: 'George D R K', no: 7, tim: 'Neofeliz FA' },
+                            { nama: 'Dehis R K', no: 10, tim: 'Neofeliz FA' }
+                        ]
+                    },
+                    { tuan: 'Menarung', tamu: 'PS Bigung', skorTuan: 4, skorTamu: 0,
+                        gol: [
+                            { nama: 'Stefano', no: 14, tim: 'Menarung' },
+                            { nama: 'Stefano', no: 14, tim: 'Menarung' },
+                            { nama: 'Neymar', no: 8, tim: 'Menarung' },
+                            { nama: 'Fajar C S', no: 9, tim: 'Menarung' }
+                        ]
+                    },
+                    { tuan: 'Neofeliz FA', tamu: 'PS Bigung', skorTuan: 5, skorTamu: 0,
+                        gol: [
+                            { nama: 'George D R K', no: 7, tim: 'Neofeliz FA' },
+                            { nama: 'George D R K', no: 7, tim: 'Neofeliz FA' },
+                            { nama: 'Oktovianus A', no: 6, tim: 'Neofeliz FA' },
+                            { nama: 'Anthony S', no: 18, tim: 'Neofeliz FA' },
+                            { nama: 'Dehis R K', no: 10, tim: 'Neofeliz FA' }
+                        ]
+                    },
+                    { tuan: 'Menarung', tamu: 'Geiska Sport', skorTuan: 10, skorTamu: 0,
+                        gol: [
+                            { nama: 'M Ricardo K', no: 6, tim: 'Menarung' },
+                            { nama: 'M Ricardo K', no: 6, tim: 'Menarung' },
+                            { nama: 'Sergio A', no: 7, tim: 'Menarung' },
+                            { nama: 'Sergio A', no: 7, tim: 'Menarung' },
+                            { nama: 'Fajar C S', no: 9, tim: 'Menarung' },
+                            { nama: 'Fajar C S', no: 9, tim: 'Menarung' },
+                            { nama: 'Neymar', no: 8, tim: 'Menarung' },
+                            { nama: 'Neymar', no: 8, tim: 'Menarung' },
+                            { nama: 'M Syahrul', no: 10, tim: 'Menarung' },
+                            { nama: 'M Syahrul', no: 10, tim: 'Menarung' }
+                        ]
+                    },
+                    { tuan: 'Geiska Sport', tamu: 'PS Bigung', skorTuan: 1, skorTamu: 2,
+                        gol: [
+                            { nama: 'Rangga K', no: 11, tim: 'Geiska Sport' },
+                            { nama: 'Fernandes A', no: 10, tim: 'PS Bigung' },
+                            { nama: 'Gabriel D', no: 95, tim: 'PS Bigung' }
+                        ]
+                    },
+                    { tuan: 'Neofeliz FA', tamu: 'Menarung', skorTuan: 1, skorTamu: 2,
+                        gol: [
+                            { nama: 'Anthony S', no: 18, tim: 'Neofeliz FA' },
+                            { nama: 'M Syahrul', no: 10, tim: 'Menarung' },
+                            { nama: 'Juan F', no: 4, tim: 'Menarung' }
+                        ]
+                    }
+                ],
+                B: [
+                    { tuan: 'PSG Muara Gusiq', tamu: 'Persimen X Diandra', skorTuan: 6, skorTamu: 0,
+                        gol: [
+                            { nama: 'M Ilham S', no: 10, tim: 'PSG Muara Gusiq' },
+                            { nama: 'M Ilham S', no: 10, tim: 'PSG Muara Gusiq' },
+                            { nama: 'M Ilham S', no: 10, tim: 'PSG Muara Gusiq' },
+                            { nama: 'Bilfaqih R G', no: 14, tim: 'PSG Muara Gusiq' },
+                            { nama: 'Bilfaqih R G', no: 14, tim: 'PSG Muara Gusiq' },
+                            { nama: 'Rifki Aditia', no: 3, tim: 'PSG Muara Gusiq' }
+                        ]
+                    },
+                    { tuan: 'Delirium Muara Tae', tamu: 'Persimen X Diandra', skorTuan: 2, skorTamu: 0,
+                        gol: [
+                            { nama: 'Faturrachman', no: 11, tim: 'Delirium Muara Tae' },
+                            { nama: 'Gabriel A W', no: 13, tim: 'Delirium Muara Tae' }
+                        ]
+                    },
+                    { tuan: 'PSG Muara Gusiq', tamu: 'Delirium Muara Tae', skorTuan: 0, skorTamu: 2,
+                        gol: [
+                            { nama: 'Gabriel A W', no: 13, tim: 'Delirium Muara Tae' },
+                            { nama: 'Gabriel A W', no: 13, tim: 'Delirium Muara Tae' }
+                        ]
+                    }
+                ],
+                C: [
+                    { tuan: 'Persimuja', tamu: 'Kerbangan SKD', skorTuan: 1, skorTamu: 2,
+                        gol: [
+                            { nama: 'Christian F', no: 11, tim: 'Persimuja' },
+                            { nama: 'Kristian J O', no: 9, tim: 'Kerbangan SKD' },
+                            { nama: 'Syahdan F', no: 12, tim: 'Kerbangan SKD' }
+                        ]
+                    },
+                    { tuan: 'Asira', tamu: 'Kerbangan SKD', skorTuan: 1, skorTamu: 2,
+                        gol: [
+                            { nama: 'Aldo Christian', no: 6, tim: 'Asira' },
+                            { nama: 'Markus Deno', no: 6, tim: 'Kerbangan SKD' },
+                            { nama: 'Killian G C', no: 7, tim: 'Kerbangan SKD' }
+                        ]
+                    },
+                    { tuan: 'Persimuja', tamu: 'Asira', skorTuan: 2, skorTamu: 1,
+                        gol: [
+                            { nama: 'Christian A D', no: 17, tim: 'Persimuja' },
+                            { nama: 'Christian F', no: 11, tim: 'Persimuja' },
+                            { nama: 'Aldo C', no: 6, tim: 'Asira' }
+                        ]
+                    }
+                ],
+                D: [
+                    { tuan: 'Gelora Putra Sendawar', tamu: 'Jaya Prana', skorTuan: 1, skorTamu: 1,
+                        gol: [
+                            { nama: 'Misel', no: 18, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Deni (OG)', no: 12, tim: 'Jaya Prana' }
+                        ]
+                    },
+                    { tuan: 'Jaya Prana', tamu: 'Akademi Nyuatan Bersatu', skorTuan: 5, skorTamu: 0,
+                        gol: [
+                            { nama: 'Jantur JJP', no: 9, tim: 'Jaya Prana' },
+                            { nama: 'Jantur JJP', no: 9, tim: 'Jaya Prana' },
+                            { nama: 'Jantur JJP', no: 9, tim: 'Jaya Prana' },
+                            { nama: 'Deven K M', no: 12, tim: 'Jaya Prana' },
+                            { nama: 'M Febri', no: 21, tim: 'Jaya Prana' }
+                        ]
+                    },
+                    { tuan: 'Akademi Nyuatan Bersatu', tamu: 'Gelora Putra Sendawar', skorTuan: 2, skorTamu: 3,
+                        gol: [
+                            { nama: 'Devin', no: 33, tim: 'Akademi Nyuatan Bersatu' },
+                            { nama: 'Devin', no: 33, tim: 'Akademi Nyuatan Bersatu' },
+                            { nama: 'Danil', no: 15, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Handian W', no: 3, tim: 'Gelora Putra Sendawar' },
+                            { nama: 'Yosua', no: 8, tim: 'Gelora Putra Sendawar' }
+                        ]
+                    }
                 ]
             }
         };
 
         // ============================================================
-        // DATA U-15
-        // Format: A1 vs C2, D2 vs B1, C1 vs A2, B2 vs D1
+        // DATA KARTU
         // ============================================================
 
-        const dataU15 = {
-            quarter: [{
-                label: 'QF 1',
-                teams: [
-                    { name: 'MENARUNG', score: '-', winner: false },
-                    { name: 'PERSIMUJA', score: '-', winner: false }
-                ]
-            }, {
-                label: 'QF 2',
-                teams: [
-                    { name: 'Gelora Putra Sendawar', score: '-', winner: false },
-                    { name: 'DELIRIUM Muara Tae', score: '-', winner: false }
-                ]
-            }, {
-                label: 'QF 3',
-                teams: [
-                    { name: 'KERBANGAN SKD', score: '-', winner: false },
-                    { name: 'NEOFELIZ FA', score: '-', winner: false }
-                ]
-            }, {
-                label: 'QF 4',
-                teams: [
-                    { name: 'PSG Muara Gusiq', score: '-', winner: false },
-                    { name: 'Jaya Prana', score: '-', winner: false }
-                ]
-            }],
-            semifinal: [{
-                label: 'SF 1',
-                teams: [
-                    { name: 'Pemenang QF 1', score: '-', winner: false },
-                    { name: 'Pemenang QF 2', score: '-', winner: false }
-                ]
-            }, {
-                label: 'SF 2',
-                teams: [
-                    { name: 'Pemenang QF 3', score: '-', winner: false },
-                    { name: 'Pemenang QF 4', score: '-', winner: false }
-                ]
-            }],
-            final: {
-                label: 'FINAL',
-                teams: [
-                    { name: 'Pemenang SF 1', score: '-', winner: false },
-                    { name: 'Pemenang SF 2', score: '-', winner: false }
-                ]
-            }
+        const kartuData = {
+            u13: [
+                { no: 0, nama: 'Lexsi', tim: 'Jaya Prana', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Persimuja' },
+                { no: 12, nama: 'Frafael J M', tim: 'Akademi Nyuatan Bersatu', kuning: 1, merah: 0, pertandingan: 'Akademi Nyuatan Bersatu vs PS Bigung' },
+                { no: 5, nama: 'Yoel Y', tim: 'PS Bigung', kuning: 1, merah: 0, pertandingan: 'Gelora Putra Sendawar vs PS Bigung' },
+                { no: 5, nama: 'Alvian R', tim: 'Petras', kuning: 1, merah: 0, pertandingan: 'PS Bigung vs Petras' },
+                { no: 3, nama: 'M U Syahdan', tim: 'Petras', kuning: 1, merah: 0, pertandingan: 'PS Bigung vs Petras' },
+                // QF 1
+                { no: 2, nama: 'Yuvinus M', tim: 'Jaya Prana', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' },
+                { no: 4, nama: 'Vebrianus G', tim: 'Jaya Prana', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' },
+                { no: 4, nama: 'Belgiyo', tim: 'Gelora Putra Sendawar', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' }
+            ],
+            u15: [
+                { no: 1, nama: 'Rifana', tim: 'PSG Muara Gusiq', kuning: 1, merah: 0, pertandingan: 'PSG Muara Gusiq vs Persimen X Diandra' },
+                { no: 30, nama: 'Christeon H F', tim: 'Persimen X Diandra', kuning: 1, merah: 0, pertandingan: 'PSG Muara Gusiq vs Persimen X Diandra' },
+                { no: 1, nama: 'Lesky C', tim: 'Persimen X Diandra', kuning: 0, merah: 1, pertandingan: 'PSG Muara Gusiq vs Persimen X Diandra' },
+                { no: 11, nama: 'Gherand C', tim: 'Kerbangan SKD', kuning: 1, merah: 0, pertandingan: 'Persimuja vs Kerbangan SKD' },
+                { no: 4, nama: 'Carel N T', tim: 'Persimen X Diandra', kuning: 1, merah: 0, pertandingan: 'Delirium Muara Tae vs Persimen X Diandra' },
+                { no: 14, nama: 'Ardi Harnoko', tim: 'Neofeliz FA', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs PS Bigung' },
+                { no: 10, nama: 'Dehis R K', tim: 'Neofeliz FA', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs PS Bigung' },
+                { no: 95, nama: 'Gabriel D', tim: 'PS Bigung', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs PS Bigung' },
+                { no: 6, nama: 'Markus Deno', tim: 'Kerbangan SKD', kuning: 1, merah: 0, pertandingan: 'Asira vs Kerbangan SKD' },
+                { no: 14, nama: 'Dhanielo I', tim: 'Kerbangan SKD', kuning: 1, merah: 0, pertandingan: 'Asira vs Kerbangan SKD' },
+                { no: 9, nama: 'Tadeus B', tim: 'Geiska Sport', kuning: 1, merah: 0, pertandingan: 'Menarung vs Geiska Sport' },
+                { no: 5, nama: 'Gabra M', tim: 'Geiska Sport', kuning: 1, merah: 0, pertandingan: 'Geiska Sport vs PS Bigung' },
+                { no: 25, nama: 'Antonio D V', tim: 'Delirium Muara Tae', kuning: 1, merah: 0, pertandingan: 'PSG Muara Gusiq vs Delirium Muara Tae' },
+                { no: 1, nama: 'Fabiano Juah', tim: 'Menarung', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs Menarung' },
+                { no: 99, nama: 'Natanael R', tim: 'Persimuja', kuning: 1, merah: 0, pertandingan: 'Persimuja vs Asira' },
+                { no: 13, nama: 'Ananta S Y', tim: 'Asira', kuning: 1, merah: 0, pertandingan: 'Persimuja vs Asira' }
+            ]
         };
+
+        // ============================================================
+        // DATA PERTANDINGAN 8 BESAR, SEMIFINAL, FINAL, 3-4
+        // ============================================================
+
+        // Data U-13
+        const matchDetailU13 = {
+            quarter: [
+                { label: 'QF 1', tuan: 'Jaya Prana', tamu: 'Gelora Putra Sendawar', skorTuan: 1, skorTamu: 0,
+                    gol: [
+                        { nama: 'Oxel S D', no: 19, tim: 'Jaya Prana' }
+                    ]
+                },
+                { label: 'QF 2', tuan: 'Menarung', tamu: 'Persimen X Diandra', skorTuan: 1, skorTamu: 0,
+                    gol: [
+                        { nama: 'Alvino', no: 11, tim: 'Menarung' }
+                    ]
+                },
+                { label: 'QF 3', tuan: 'PS Bigung', tamu: 'Persimuja', skorTuan: null, skorTamu: null, gol: [] },
+                { label: 'QF 4', tuan: 'Petras', tamu: 'Azellen Soccer', skorTuan: null, skorTamu: null, gol: [] }
+            ],
+            semifinal: [
+                { label: 'SF 1', tuan: 'Jaya Prana', tamu: 'Menarung', skorTuan: null, skorTamu: null, gol: [] },
+                { label: 'SF 2', tuan: 'Pemenang QF 3', tamu: 'Pemenang QF 4', skorTuan: null, skorTamu: null, gol: [] }
+            ],
+            final: { label: 'FINAL', tuan: 'Pemenang SF 1', tamu: 'Pemenang SF 2', skorTuan: null, skorTamu: null,
+            gol: [] },
+            thirdPlace: { label: '3-4', tuan: 'Kalah SF 1', tamu: 'Kalah SF 2', skorTuan: null, skorTamu: null,
+            gol: [] }
+        };
+
+        // Data U-15
+        const matchDetailU15 = {
+            quarter: [
+                { label: 'QF 1', tuan: 'Menarung', tamu: 'Persimuja', skorTuan: null, skorTamu: null, gol: [] },
+                { label: 'QF 2', tuan: 'Gelora Putra Sendawar', tamu: 'Delirium Muara Tae', skorTuan: null, skorTamu: null,
+                    gol: []
+                },
+                { label: 'QF 3', tuan: 'Kerbangan SKD', tamu: 'Neofeliz FA', skorTuan: null, skorTamu: null, gol: [] },
+                { label: 'QF 4', tuan: 'PSG Muara Gusiq', tamu: 'Jaya Prana', skorTuan: null, skorTamu: null, gol: [] }
+            ],
+            semifinal: [
+                { label: 'SF 1', tuan: 'Pemenang QF 1', tamu: 'Pemenang QF 2', skorTuan: null, skorTamu: null,
+                gol: [] },
+                { label: 'SF 2', tuan: 'Pemenang QF 3', tamu: 'Pemenang QF 4', skorTuan: null, skorTamu: null,
+                gol: [] }
+            ],
+            final: { label: 'FINAL', tuan: 'Pemenang SF 1', tamu: 'Pemenang SF 2', skorTuan: null, skorTamu: null,
+            gol: [] },
+            thirdPlace: { label: '3-4', tuan: 'Kalah SF 1', tamu: 'Kalah SF 2', skorTuan: null, skorTamu: null,
+            gol: [] }
+        };
+
+        // ============================================================
+        // FUNGSI HITUNG TOP SKOR (dari kode kedua)
+        // ============================================================
+
+        function hitungTopSkor(pertandinganGrup) {
+            const golMap = {};
+
+            for (const g of Object.keys(pertandinganGrup)) {
+                const matches = pertandinganGrup[g] || [];
+                for (const match of matches) {
+                    const gol = match.gol || [];
+                    for (const g of gol) {
+                        if (g.nama.includes('(OG)')) continue;
+                        const key = `${g.nama}|${g.no}|${g.tim}`;
+                        if (!golMap[key]) {
+                            golMap[key] = { nama: g.nama, no: g.no, tim: g.tim, gol: 0 };
+                        }
+                        golMap[key].gol += 1;
+                    }
+                }
+            }
+
+            const result = Object.values(golMap);
+            result.sort((a, b) => b.gol - a.gol);
+            return result;
+        }
+
+        // ============================================================
+        // FUNGSI RENDER DETAIL PERTANDINGAN
+        // ============================================================
+
+        function renderMatchDetail(match, kartu) {
+            const skorTuan = match.skorTuan !== null ? match.skorTuan : '?';
+            const skorTamu = match.skorTamu !== null ? match.skorTamu : '?';
+            const isFinished = match.skorTuan !== null && match.skorTamu !== null;
+
+            // Filter gol per tim
+            const golTuan = (match.gol || []).filter(g => g.tim === match.tuan && !g.nama.includes('(OG)'));
+            const golTuanOG = (match.gol || []).filter(g => g.tim === match.tuan && g.nama.includes('(OG)'));
+            const golTamu = (match.gol || []).filter(g => g.tim === match.tamu && !g.nama.includes('(OG)'));
+            const golTamuOG = (match.gol || []).filter(g => g.tim === match.tamu && g.nama.includes('(OG)'));
+
+            // Filter kartu per tim
+            const matchKey = `${match.tuan} vs ${match.tamu}`;
+            const kartuTuan = kartu.filter(k => k.tim === match.tuan && k.pertandingan === matchKey);
+            const kartuTamu = kartu.filter(k => k.tim === match.tamu && k.pertandingan === matchKey);
+
+            function renderGol(golArray) {
+                if (!golArray || golArray.length === 0) return '';
+                const grouped = {};
+                golArray.forEach(g => {
+                    const key = `${g.nama}|${g.no}`;
+                    if (!grouped[key]) {
+                        grouped[key] = { nama: g.nama, no: g.no, count: 0 };
+                    }
+                    grouped[key].count += 1;
+                });
+                return Object.values(grouped).map(g => {
+                    const balls = '⚽'.repeat(g.count);
+                    return `
+                        <span class="goal-item">
+                            <span class="goal-balls">${balls}</span>
+                            <span class="goal-number">${g.no}.</span>
+                            <span class="goal-name">${g.nama}</span>
+                        </span>
+                    `;
+                }).join('');
+            }
+
+            function renderGolOG(golArray) {
+                if (!golArray || golArray.length === 0) return '';
+                return golArray.map(g => {
+                    const namaClean = g.nama.replace(' (OG)', '');
+                    return `
+                        <span class="goal-item">
+                            <span class="goal-balls">⚽</span>
+                            <span class="goal-number">${g.no}.</span>
+                            <span class="goal-name">${namaClean}</span>
+                            <span class="goal-og-label">OG</span>
+                        </span>
+                    `;
+                }).join('');
+            }
+
+            function renderKartu(kartuArray) {
+                if (!kartuArray || kartuArray.length === 0) return '';
+                return kartuArray.map(k => {
+                    const icon = k.kuning > 0 ? '🟨' : '🟥';
+                    const cls = k.kuning > 0 ? 'card-yellow' : 'card-red';
+                    return `
+                        <span class="card-item">
+                            <span class="${cls}">${icon}</span>
+                            <span class="card-number">${k.no}.</span>
+                            <span class="card-name">${k.nama}</span>
+                        </span>
+                    `;
+                }).join('');
+            }
+
+            const adaGol = golTuan.length > 0 || golTamu.length > 0 || golTuanOG.length > 0 || golTamuOG.length > 0;
+            const adaKartu = kartuTuan.length > 0 || kartuTamu.length > 0;
+
+            return `
+                <div class="match-detail-card">
+                    <div class="match-detail-header">
+                        <span class="match-label">${match.label}</span>
+                        <span class="match-teams">${match.tuan} vs ${match.tamu}</span>
+                        <span class="match-score">${skorTuan} - ${skorTamu}</span>
+                        ${!isFinished ? '<span style="font-size:10px;color:#6b7280;">(Belum Main)</span>' : ''}
+                    </div>
+
+                    ${isFinished ? `
+                    <div class="match-detail-body">
+                        <div class="team-col left">
+                            ${renderGol(golTuan)}
+                            ${renderGolOG(golTuanOG)}
+                            ${renderKartu(kartuTuan)}
+                        </div>
+                        <div class="match-detail-divider">⚡</div>
+                        <div class="team-col right">
+                            ${renderGol(golTamu)}
+                            ${renderGolOG(golTamuOG)}
+                            ${renderKartu(kartuTamu)}
+                        </div>
+                    </div>
+                    ` : `
+                    <div class="match-detail-empty">⏳ Pertandingan belum dimainkan</div>
+                    `}
+                </div>
+            `;
+        }
 
         // ============================================================
         // RENDER FUNGSI
         // ============================================================
 
-        function renderBracket(data, title) {
+        function renderTopSkor(container, pertandinganGrup) {
+            if (!container) return;
+
+            const topSkor = hitungTopSkor(pertandinganGrup);
+            // Filter gol >= 2
+            const filtered = topSkor.filter(item => item.gol >= 2);
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="kosong">Belum ada pemain dengan minimal 2 gol</div>';
+                return;
+            }
+
+            let html = '<div class="top-skor-list">';
+            filtered.forEach((item, idx) => {
+                html += `
+                    <div class="top-skor-item">
+                        <span>
+                            <span class="rank">${idx + 1}.</span>
+                            <span class="nama">${item.no}. ${item.nama}</span>
+                            <span class="tim">(${item.tim})</span>
+                        </span>
+                        <span class="gol">${item.gol} Gol</span>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            container.innerHTML = html;
+        }
+
+        function renderKartu(container, kartu) {
+            if (!container) return;
+
+            if (!kartu || kartu.length === 0) {
+                container.innerHTML = '<div class="kosong">Belum ada data kartu</div>';
+                return;
+            }
+
+            let html = `
+                <table class="kartu-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th style="text-align:left">Nama Pemain</th>
+                            <th style="text-align:left">Tim</th>
+                            <th>Kartu</th>
+                            <th style="text-align:left">Pertandingan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            kartu.forEach(item => {
+                let kartuHtml = '';
+                if (item.kuning > 0) {
+                    kartuHtml += `<span class="badge-kuning">🟨 ${item.kuning}</span>`;
+                }
+                if (item.merah > 0) {
+                    kartuHtml += `<span class="badge-merah">🟥 ${item.merah}</span>`;
+                }
+                if (!kartuHtml) kartuHtml = '<span style="color:#4b5563;font-size:10px;">-</span>';
+
+                html += `
+                    <tr>
+                        <td>${item.no}</td>
+                        <td class="nama-cell">${item.nama}</td>
+                        <td class="tim-cell">${item.tim}</td>
+                        <td>${kartuHtml}</td>
+                        <td class="pertandingan-cell">${item.pertandingan || '-'}</td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderAll(title, matchData, pertandinganData, kartu) {
             const container = document.getElementById('bracketContainer');
             const titleEl = document.getElementById('cardTitle');
             if (!container) return;
@@ -711,98 +1195,40 @@
 
             let html = '';
 
-            // ===== 8 BESAR (Quarterfinal) =====
-            html += `<div class="quarter-grid">`;
-            data.quarter.forEach((match) => {
-                const teams = match.teams || [];
-                html += `
-                    <div class="quarter-item">
-                        <div class="match-number">${match.label}</div>
-                        <div class="bracket-match">
-                            <div class="match-teams">
-                                ${teams.map(t => `
-                                    <div class="team-item ${t.winner ? 'winner' : 'placeholder'}">
-                                        <span class="team-name">${t.name}</span>
-                                        <span class="team-score">${t.score}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
+            // ===== DETAIL 8 BESAR =====
+            html += `
+                <div class="detail-section-title">📋 DETAIL HASIL 8 BESAR</div>
+            `;
+            matchData.quarter.forEach(match => {
+                html += renderMatchDetail(match, kartu);
             });
-            html += `</div>`;
 
-            // ===== CONNECTOR LINE =====
+            // ===== DETAIL SEMIFINAL =====
             html += `
-                <div class="connector-wrapper">
-                    <div class="connector-row">
-                        <div class="connector-spacer"></div>
-                        <div class="connector-line">
-                            <div class="line-h"></div>
-                            <div class="line-v-center"></div>
-                            <div class="line-h"></div>
-                        </div>
-                        <div class="connector-spacer"></div>
-                    </div>
-                </div>
+                <div class="detail-section-title" style="margin-top:24px;">📋 DETAIL HASIL SEMIFINAL</div>
             `;
-
-            // ===== SEMIFINAL (4 Besar) =====
-            html += `<div class="semi-container">`;
-            data.semifinal.forEach((match) => {
-                const teams = match.teams || [];
-                html += `
-                    <div class="semi-item">
-                        <div class="match-number">${match.label}</div>
-                        <div class="bracket-match">
-                            <div class="match-teams">
-                                ${teams.map(t => `
-                                    <div class="team-item ${t.winner ? 'winner' : 'placeholder'}">
-                                        <span class="team-name">${t.name}</span>
-                                        <span class="team-score">${t.score}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
+            matchData.semifinal.forEach(match => {
+                html += renderMatchDetail(match, kartu);
             });
-            html += `</div>`;
 
-            // ===== CONNECTOR LINE =====
+            // ===== DETAIL FINAL & 3-4 =====
             html += `
-                <div class="connector-wrapper">
-                    <div class="connector-row">
-                        <div class="connector-spacer"></div>
-                        <div class="connector-line">
-                            <div class="line-h"></div>
-                            <div class="line-v-center"></div>
-                            <div class="line-h"></div>
-                        </div>
-                        <div class="connector-spacer"></div>
-                    </div>
-                </div>
+                <div class="detail-section-title" style="margin-top:24px;">📋 DETAIL HASIL FINAL</div>
+            `;
+            html += renderMatchDetail(matchData.final, kartu);
+            html += renderMatchDetail(matchData.thirdPlace, kartu);
+
+            // ===== TOP SKOR =====
+            html += `
+                <div class="sub-section-title">⚽ TOP SKOR (Minimal 2 Gol)</div>
+                <div id="topSkorContainer"></div>
             `;
 
-            // ===== FINAL =====
-            html += `<div class="final-container">`;
+            // ===== KARTU =====
             html += `
-                <div class="final-item">
-                    <div class="match-number">${data.final.label}</div>
-                    <div class="bracket-match final-match">
-                        <div class="match-teams">
-                            ${data.final.teams.map(t => `
-                                <div class="team-item ${t.winner ? 'winner' : 'placeholder'}">
-                                    <span class="team-name">${t.name}</span>
-                                    <span class="team-score">${t.score}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
+                <div class="sub-section-title" style="margin-top:20px;">🟨🟥 KARTU</div>
+                <div id="kartuContainer"></div>
             `;
-            html += `</div>`;
 
             // Fade in animation
             container.classList.add('fade');
@@ -810,6 +1236,18 @@
             setTimeout(() => {
                 container.classList.remove('fade');
             }, 50);
+
+            // Render Top Skor & Kartu setelah HTML dimasukkan
+            const topSkorContainer = document.getElementById('topSkorContainer');
+            const kartuContainer = document.getElementById('kartuContainer');
+
+            if (topSkorContainer) {
+                renderTopSkor(topSkorContainer, pertandinganData);
+            }
+
+            if (kartuContainer) {
+                renderKartu(kartuContainer, kartu);
+            }
         }
 
         // ============================================================
@@ -832,9 +1270,9 @@
 
             // Render data sesuai tab
             if (tab === 'u13') {
-                renderBracket(dataU13, '8 BESAR U-13');
+                renderAll('8 BESAR U-13', matchDetailU13, pertandingan.u13, kartuData.u13);
             } else if (tab === 'u15') {
-                renderBracket(dataU15, '8 BESAR U-15');
+                renderAll('8 BESAR U-15', matchDetailU15, pertandingan.u15, kartuData.u15);
             }
         }
 
@@ -852,13 +1290,17 @@
         // INIT - Default tampilkan U-13
         // ============================================================
 
-        renderBracket(dataU13, '8 BESAR U-13');
+        renderAll('8 BESAR U-13', matchDetailU13, pertandingan.u13, kartuData.u13);
 
         console.log('🏆 Piala Soeratin 2026 - 8 Besar U-13 & U-15');
-        console.log('📌 Format U-13: A1 vs B2, C1 vs A3, B1 vs A2, B3 vs C2');
-        console.log('📌 Format U-15: A1 vs C2, D2 vs B1, C1 vs A2, B2 vs D1');
-        console.log('✏️ Edit data di dataU13 dan dataU15 untuk mengisi skor & pemenang');
-        console.log('💡 Tips: Ubah score dari "-" ke angka (contoh: "2"), dan winner ke true');
+        console.log('✅ Semua detail pertandingan (8 Besar, Semifinal, Final, 3-4)');
+        console.log('✅ Top Skor (gol ≥ 2)');
+        console.log('✅ Kartu');
+        console.log('📌 Update QF 1 & QF 2 U-13 sudah masuk:');
+        console.log('   ✅ Jaya Prana 1-0 Gelora Putra Sendawar (⚽ 19. Oxel S D)');
+        console.log('   ✅ Menarung 1-0 Persimen X Diandra (⚽ 11. Alvino)');
+        console.log('📌 Kartu QF 1 U-13 sudah masuk');
+        console.log('✏️ Edit data di matchDetailU13 / matchDetailU15 untuk update');
     </script>
 
 </body>
