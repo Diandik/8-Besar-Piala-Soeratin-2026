@@ -617,7 +617,7 @@
 
     <script>
         // ============================================================
-        // DATA PERTANDINGAN LENGKAP (dari kode kedua)
+        // DATA PERTANDINGAN LENGKAP
         // ============================================================
 
         const pertandingan = {
@@ -927,12 +927,24 @@
                         { nama: 'Alvino', no: 11, tim: 'Menarung' }
                     ]
                 },
-                { label: 'QF 3', tuan: 'PS Bigung', tamu: 'Persimuja', skorTuan: null, skorTamu: null, gol: [] },
-                { label: 'QF 4', tuan: 'Petras', tamu: 'Azellen Soccer', skorTuan: null, skorTamu: null, gol: [] }
+                { label: 'QF 3', tuan: 'PS Bigung', tamu: 'Persimuja', skorTuan: 0, skorTamu: 2,
+                    gol: [
+                        { nama: 'Jandsky L', no: 9, tim: 'Persimuja' },
+                        { nama: 'Jandsky L', no: 9, tim: 'Persimuja' }
+                    ]
+                },
+                { label: 'QF 4', tuan: 'Petras', tamu: 'Azellen Soccer', skorTuan: 1, skorTamu: 3,
+                    gol: [
+                        { nama: 'Bima M', no: 7, tim: 'Petras' },
+                        { nama: 'M Raffy R (OG)', no: 78, tim: 'Azellen Soccer' },
+                        { nama: 'Hardianto', no: 77, tim: 'Azellen Soccer' },
+                        { nama: 'Fernandes', no: 72, tim: 'Azellen Soccer' }
+                    ]
+                }
             ],
             semifinal: [
                 { label: 'SF 1', tuan: 'Jaya Prana', tamu: 'Menarung', skorTuan: null, skorTamu: null, gol: [] },
-                { label: 'SF 2', tuan: 'Pemenang QF 3', tamu: 'Pemenang QF 4', skorTuan: null, skorTamu: null, gol: [] }
+                { label: 'SF 2', tuan: 'Persimuja', tamu: 'Azellen Soccer', skorTuan: null, skorTamu: null, gol: [] }
             ],
             final: { label: 'FINAL', tuan: 'Pemenang SF 1', tamu: 'Pemenang SF 2', skorTuan: null, skorTamu: null,
             gol: [] },
@@ -940,7 +952,7 @@
             gol: [] }
         };
 
-        // Data U-15 - UPDATE hasil QF 1 & QF 2
+        // Data U-15
         const matchDetailU15 = {
             quarter: [
                 { label: 'QF 1', tuan: 'Menarung', tamu: 'Persimuja', skorTuan: 2, skorTamu: 1,
@@ -971,12 +983,13 @@
         };
 
         // ============================================================
-        // FUNGSI HITUNG TOP SKOR (dari kode kedua)
+        // FUNGSI HITUNG TOP SKOR (termasuk 8 Besar)
         // ============================================================
 
-        function hitungTopSkor(pertandinganGrup) {
+        function hitungTopSkor(pertandinganGrup, matchDetail) {
             const golMap = {};
 
+            // 1. Data dari fase grup
             for (const g of Object.keys(pertandinganGrup)) {
                 const matches = pertandinganGrup[g] || [];
                 for (const match of matches) {
@@ -989,6 +1002,26 @@
                         }
                         golMap[key].gol += 1;
                     }
+                }
+            }
+
+            // 2. Data dari 8 Besar (quarter, semifinal, final, thirdPlace)
+            const allMatches = [
+                ...(matchDetail.quarter || []),
+                ...(matchDetail.semifinal || []),
+                matchDetail.final,
+                matchDetail.thirdPlace
+            ].filter(m => m !== undefined);
+
+            for (const match of allMatches) {
+                const gol = match.gol || [];
+                for (const g of gol) {
+                    if (g.nama.includes('(OG)')) continue;
+                    const key = `${g.nama}|${g.no}|${g.tim}`;
+                    if (!golMap[key]) {
+                        golMap[key] = { nama: g.nama, no: g.no, tim: g.tim, gol: 0 };
+                    }
+                    golMap[key].gol += 1;
                 }
             }
 
@@ -1006,13 +1039,11 @@
             const skorTamu = match.skorTamu !== null ? match.skorTamu : '?';
             const isFinished = match.skorTuan !== null && match.skorTamu !== null;
 
-            // Filter gol per tim
             const golTuan = (match.gol || []).filter(g => g.tim === match.tuan && !g.nama.includes('(OG)'));
             const golTuanOG = (match.gol || []).filter(g => g.tim === match.tuan && g.nama.includes('(OG)'));
             const golTamu = (match.gol || []).filter(g => g.tim === match.tamu && !g.nama.includes('(OG)'));
             const golTamuOG = (match.gol || []).filter(g => g.tim === match.tamu && g.nama.includes('(OG)'));
 
-            // Filter kartu per tim
             const matchKey = `${match.tuan} vs ${match.tamu}`;
             const kartuTuan = kartu.filter(k => k.tim === match.tuan && k.pertandingan === matchKey);
             const kartuTamu = kartu.filter(k => k.tim === match.tamu && k.pertandingan === matchKey);
@@ -1069,9 +1100,6 @@
                 }).join('');
             }
 
-            const adaGol = golTuan.length > 0 || golTamu.length > 0 || golTuanOG.length > 0 || golTamuOG.length > 0;
-            const adaKartu = kartuTuan.length > 0 || kartuTamu.length > 0;
-
             return `
                 <div class="match-detail-card">
                     <div class="match-detail-header">
@@ -1106,11 +1134,10 @@
         // RENDER FUNGSI
         // ============================================================
 
-        function renderTopSkor(container, pertandinganGrup) {
+        function renderTopSkor(container, pertandinganGrup, matchData) {
             if (!container) return;
 
-            const topSkor = hitungTopSkor(pertandinganGrup);
-            // Filter gol >= 2
+            const topSkor = hitungTopSkor(pertandinganGrup, matchData);
             const filtered = topSkor.filter(item => item.gol >= 2);
 
             if (filtered.length === 0) {
@@ -1192,7 +1219,6 @@
             const titleEl = document.getElementById('cardTitle');
             if (!container) return;
 
-            // Update title
             if (titleEl) {
                 titleEl.innerHTML = `
                     🏆 ${title}
@@ -1202,7 +1228,6 @@
 
             let html = '';
 
-            // ===== DETAIL 8 BESAR =====
             html += `
                 <div class="detail-section-title">📋 DETAIL HASIL 8 BESAR</div>
             `;
@@ -1210,7 +1235,6 @@
                 html += renderMatchDetail(match, kartu);
             });
 
-            // ===== DETAIL SEMIFINAL =====
             html += `
                 <div class="detail-section-title" style="margin-top:24px;">📋 DETAIL HASIL SEMIFINAL</div>
             `;
@@ -1218,38 +1242,33 @@
                 html += renderMatchDetail(match, kartu);
             });
 
-            // ===== DETAIL FINAL & 3-4 =====
             html += `
                 <div class="detail-section-title" style="margin-top:24px;">📋 DETAIL HASIL FINAL</div>
             `;
             html += renderMatchDetail(matchData.final, kartu);
             html += renderMatchDetail(matchData.thirdPlace, kartu);
 
-            // ===== TOP SKOR =====
             html += `
                 <div class="sub-section-title">⚽ TOP SKOR (Minimal 2 Gol)</div>
                 <div id="topSkorContainer"></div>
             `;
 
-            // ===== KARTU =====
             html += `
                 <div class="sub-section-title" style="margin-top:20px;">🟨🟥 KARTU</div>
                 <div id="kartuContainer"></div>
             `;
 
-            // Fade in animation
             container.classList.add('fade');
             container.innerHTML = html;
             setTimeout(() => {
                 container.classList.remove('fade');
             }, 50);
 
-            // Render Top Skor & Kartu setelah HTML dimasukkan
             const topSkorContainer = document.getElementById('topSkorContainer');
             const kartuContainer = document.getElementById('kartuContainer');
 
             if (topSkorContainer) {
-                renderTopSkor(topSkorContainer, pertandinganData);
+                renderTopSkor(topSkorContainer, pertandinganData, matchData);
             }
 
             if (kartuContainer) {
@@ -1267,7 +1286,6 @@
             if (tab === currentTab) return;
             currentTab = tab;
 
-            // Update tombol
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.tab === tab) {
@@ -1275,7 +1293,6 @@
                 }
             });
 
-            // Render data sesuai tab
             if (tab === 'u13') {
                 renderAll('8 BESAR U-13', matchDetailU13, pertandingan.u13, kartuData.u13);
             } else if (tab === 'u15') {
@@ -1294,20 +1311,15 @@
         });
 
         // ============================================================
-        // INIT - Default tampilkan U-13
+        // INIT
         // ============================================================
 
         renderAll('8 BESAR U-13', matchDetailU13, pertandingan.u13, kartuData.u13);
 
         console.log('🏆 Piala Soeratin 2026 - 8 Besar U-13 & U-15');
-        console.log('✅ Semua detail pertandingan (8 Besar, Semifinal, Final, 3-4)');
-        console.log('✅ Top Skor (gol ≥ 2)');
-        console.log('✅ Kartu');
-        console.log('📌 Update QF 1 & QF 2 U-15 sudah masuk:');
-        console.log('   ✅ Menarung 2-1 Persimuja (⚽⚽ 4. Juan F, ⚽ 11. Christian F)');
-        console.log('   ✅ Gelora Putra Sendawar 0-1 Delirium Muara Tae (⚽ 13. Gabriel A W)');
-        console.log('📌 Kartu QF 2 U-15 sudah masuk');
-        console.log('✏️ Edit data di matchDetailU13 / matchDetailU15 untuk update');
+        console.log('✅ Top Skor sekarang terupdate (termasuk 8 Besar)');
+        console.log('📌 U-13 QF 3: PS Bigung 0-2 Persimuja (⚽⚽ 9. Jandsky L)');
+        console.log('📌 U-13 QF 4: Petras 1-3 Azellen Soccer (⚽ 7. Bima M, ⚽ 78. M Raffy R(OG), ⚽ 77. Hardianto, ⚽ 72. Fernandes)');
     </script>
 
 </body>
