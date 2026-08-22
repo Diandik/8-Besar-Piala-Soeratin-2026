@@ -888,6 +888,10 @@
                 { no: 4, nama: 'Belgiyo', tim: 'Gelora Putra Sendawar', kuning: 1, merah: 0, pertandingan: 'Jaya Prana vs Gelora Putra Sendawar' }
             ],
             u15: [
+                // Data kartu baru dari pertandingan 8 Besar
+                { no: 5, nama: 'Dean W S', tim: 'Neofeliz FA', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs Kerbangan SKD' },
+                { no: 16, nama: 'Febrianus R', tim: 'Kerbangan SKD', kuning: 1, merah: 0, pertandingan: 'Neofeliz FA vs Kerbangan SKD' },
+                // Data lama
                 { no: 1, nama: 'Rifana', tim: 'PSG Muara Gusiq', kuning: 1, merah: 0, pertandingan: 'PSG Muara Gusiq vs Persimen X Diandra' },
                 { no: 30, nama: 'Christeon H F', tim: 'Persimen X Diandra', kuning: 1, merah: 0, pertandingan: 'PSG Muara Gusiq vs Persimen X Diandra' },
                 { no: 1, nama: 'Lesky C', tim: 'Persimen X Diandra', kuning: 0, merah: 1, pertandingan: 'PSG Muara Gusiq vs Persimen X Diandra' },
@@ -952,7 +956,7 @@
             gol: [] }
         };
 
-        // Data U-15
+        // Data U-15 - UPDATE dengan hasil pertandingan baru
         const matchDetailU15 = {
             quarter: [
                 { label: 'QF 1', tuan: 'Menarung', tamu: 'Persimuja', skorTuan: 2, skorTamu: 1,
@@ -967,13 +971,26 @@
                         { nama: 'Gabriel A W', no: 13, tim: 'Delirium Muara Tae' }
                     ]
                 },
-                { label: 'QF 3', tuan: 'Kerbangan SKD', tamu: 'Neofeliz FA', skorTuan: null, skorTamu: null, gol: [] },
-                { label: 'QF 4', tuan: 'PSG Muara Gusiq', tamu: 'Jaya Prana', skorTuan: null, skorTamu: null, gol: [] }
+                // QF 3: Neofeliz FA vs Kerbangan SKD - UPDATE
+                { label: 'QF 3', tuan: 'Neofeliz FA', tamu: 'Kerbangan SKD', skorTuan: 2, skorTamu: 0,
+                    gol: [
+                        { nama: 'Stefanus Y K', no: 9, tim: 'Neofeliz FA' },
+                        { nama: 'Manuel E T', no: 11, tim: 'Neofeliz FA' }
+                    ]
+                },
+                // QF 4: PSG Muara Gusiq vs Jaya Prana - UPDATE
+                { label: 'QF 4', tuan: 'PSG Muara Gusiq', tamu: 'Jaya Prana', skorTuan: 2, skorTamu: 1,
+                    gol: [
+                        { nama: 'M Ilham S', no: 10, tim: 'PSG Muara Gusiq' },
+                        { nama: 'M Ilham S', no: 10, tim: 'PSG Muara Gusiq' },
+                        { nama: 'Lian R T', no: 7, tim: 'Jaya Prana' }
+                    ]
+                }
             ],
             semifinal: [
                 { label: 'SF 1', tuan: 'Menarung', tamu: 'Delirium Muara Tae', skorTuan: null, skorTamu: null,
                 gol: [] },
-                { label: 'SF 2', tuan: 'Pemenang QF 3', tamu: 'Pemenang QF 4', skorTuan: null, skorTamu: null,
+                { label: 'SF 2', tuan: 'Neofeliz FA', tamu: 'PSG Muara Gusiq', skorTuan: null, skorTamu: null,
                 gol: [] }
             ],
             final: { label: 'FINAL', tuan: 'Pemenang SF 1', tamu: 'Pemenang SF 2', skorTuan: null, skorTamu: null,
@@ -1317,9 +1334,10 @@
         renderAll('8 BESAR U-13', matchDetailU13, pertandingan.u13, kartuData.u13);
 
         console.log('🏆 Piala Soeratin 2026 - 8 Besar U-13 & U-15');
-        console.log('✅ Top Skor sekarang terupdate (termasuk 8 Besar)');
-        console.log('📌 U-13 QF 3: PS Bigung 0-2 Persimuja (⚽⚽ 9. Jandsky L)');
-        console.log('📌 U-13 QF 4: Petras 1-3 Azellen Soccer (⚽ 7. Bima M, ⚽ 78. M Raffy R(OG), ⚽ 77. Hardianto, ⚽ 72. Fernandes)');
+        console.log('✅ Update hasil pertandingan U-15 8 Besar:');
+        console.log('   📌 Neofeliz FA 2-0 Kerbangan SKD (⚽ 9. Stefanus Y K, ⚽ 11. Manuel E T)');
+        console.log('   📌 PSG Muara Gusiq 2-1 Jaya Prana (⚽⚽ 10. M Ilham S, ⚽ 7. Lian R T)');
+        console.log('✅ Kartu kuning: Dean W S (Neofeliz), Febrianus R (Kerbangan)');
     </script>
 
 </body>
